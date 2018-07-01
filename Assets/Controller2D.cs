@@ -80,7 +80,6 @@ public class Controller2D : RaycastController {
 			//Debug.Log (rayOrigin + " " + i);
 
 			if (hit) {
-				Debug.Log ("HIT!");
 				if (hit.distance == 0) {
 					Debug.LogError ("ERROR! YOU ARE INSIDE AN OBJECT RIGHT NOW!");
 					continue;
@@ -120,7 +119,6 @@ public class Controller2D : RaycastController {
 			Debug.DrawRay (rayOrigin, Vector2.up * fMoveUp, Color.red);
 
 			if (hit) {
-				Debug.Log ("HIT!");
 				if (hit.distance == 0) {
 					Debug.LogError ("ERROR! YOU ARE INSIDE AN OBJECT RIGHT NOW!");
 					continue;
