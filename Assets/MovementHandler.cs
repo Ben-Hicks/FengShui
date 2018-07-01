@@ -16,8 +16,8 @@ public class MovementHandler : MonoBehaviour {
 		nDirCount++;
 		curDir = _dir;
 
-		foreach (Moveable m in Object.FindObjectsOfType<Moveable> ()) {
-			m.SetGravity (_dir);
+		foreach (Controller2D m in Object.FindObjectsOfType<Controller2D> ()) {
+			m.SetAccel (_dir);
 		}
 	}
 
