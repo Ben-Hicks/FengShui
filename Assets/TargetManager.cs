@@ -7,7 +7,7 @@ public class TargetManager : MonoBehaviour {
 	public Block[] arBlocks;
 	public Target[] arTargets;
 
-	public static Color[] arColors = {Color.red, Color.blue, Color.green};
+	public static Color[] arColors = {Color.red, Color.blue, Color.green, Color.yellow, Color.cyan};
 
 	public bool bSolved;
 

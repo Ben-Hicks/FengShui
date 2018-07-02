@@ -54,14 +54,13 @@ public class Controller2D : RaycastController {
 		collisions.Reset ();
 		collisions.v2VelocityOld = v2Velocity;
 
-		HorizontalCollisions (ref v2ToMove);
-		VerticalCollisions (ref v2ToMove);
+		MoveX (ref v2ToMove);
 
-		transform.Translate (v2ToMove);
+		MoveY (ref v2ToMove);
 
 	}
 
-	void HorizontalCollisions(ref Vector2 v2ToMove){
+	void MoveX(ref Vector2 v2ToMove){
 		float fMoveRight = (v2ToMove.x >= 0) ? 1.0f : -1.0f;
 
 		float rayLength = Mathf.Abs (v2ToMove.x) + skinWidth;
@@ -99,9 +98,10 @@ public class Controller2D : RaycastController {
 			}
 
 		}
+		transform.Translate (new Vector2(v2ToMove.x, 0.0f));
 	}
 
-	void VerticalCollisions(ref Vector2 v2ToMove){
+	void MoveY(ref Vector2 v2ToMove){
 		float fMoveUp = (v2ToMove.y >= 0) ? 1.0f : -1.0f;;
 
 		float rayLength = Mathf.Abs (v2ToMove.y) + skinWidth;
@@ -138,6 +138,7 @@ public class Controller2D : RaycastController {
 			}
 
 		}
+		transform.Translate (new Vector2(0.0f,v2ToMove.y));
 	}
 
 	// Use this for initialization
