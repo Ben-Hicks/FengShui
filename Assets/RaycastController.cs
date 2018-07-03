@@ -9,7 +9,6 @@ public class RaycastController : MonoBehaviour {
 	public int nVerticalRayCount = 4;
 	public LayerMask collisionMask;
 	public const float skinWidth = 0.015f;
-	public float raySpacing = 0.25f;
 
 	[HideInInspector]
 	public float fHorizontalRaySpacing;
@@ -27,7 +26,7 @@ public class RaycastController : MonoBehaviour {
 
 	public virtual void Awake(){
 		collider = GetComponent<BoxCollider2D> ();
-		SpaceRays ();
+		//SpaceRays ();
 	}
 
 	// Use this for initialization
@@ -48,8 +47,8 @@ public class RaycastController : MonoBehaviour {
 
 	public void SpaceRays(){
 		Bounds bounds = collider.bounds;
-		nVerticalRayCount = (int)(bounds.size.x / raySpacing);
-		nHorizontalRayCount = (int)(bounds.size.y / raySpacing);
+		//nVerticalRayCount = (int)(bounds.size.x / raySpacing);
+		//nHorizontalRayCount = (int)(bounds.size.y / raySpacing);
 		//Debug.Log (bounds.size.x  + " " + bounds.size.y) ;
 	}
 	
@@ -59,8 +58,8 @@ public class RaycastController : MonoBehaviour {
 		nVerticalRayCount = Mathf.Clamp (nVerticalRayCount, 2, int.MaxValue);
 		nHorizontalRayCount = Mathf.Clamp (nHorizontalRayCount, 2, int.MaxValue);
 	
-		fHorizontalRaySpacing = bounds.size.y / (nHorizontalRayCount - 1);
-		fVerticalRaySpacing = bounds.size.x / (nVerticalRayCount - 1);
+		fHorizontalRaySpacing = (bounds.size.y - (2 * skinWidth)) / (nHorizontalRayCount - 1);
+		fVerticalRaySpacing = (bounds.size.x - (2 * skinWidth)) / (nVerticalRayCount - 1);
 		//Debug.Log (fHorizontalRaySpacing+ " " + fVerticalRaySpacing);
 	}
 }
